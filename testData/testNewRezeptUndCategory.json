@@ -1,0 +1,51 @@
+[
+    {
+        "Name": "Instant Ramen",
+        "Beschreibung": "Delicious Ramen that can be made instant",
+        "Rating": 5,
+        "rezeptSteps": [
+            {
+                "RS_ID": 1,
+                "Beschreibung": "Prepare the Broth"
+            },
+            {
+                "RS_ID": 2,
+                "Beschreibung": "Prepare Tare with soy sauce"
+            },
+            {
+                "RS_ID": 3,
+                "Beschreibung": "Boil the noodle in 3 Minutes and instant cooldown afterwards"
+            },
+            {
+                "RS_ID": 4,
+                "Beschreibung": "Put the Tare in the bowl, Pour Broth on and Mix, then put the Noodle into the bowl"
+            }
+        ],
+        "zutaten": [
+            {
+                "Name": "Soy Sauce",
+                "Beschreibung": "Japanese Soy Sauce",
+                "amount": 20,
+                "unit": "ml"
+                
+            },
+            {
+                "Name": "Dashi Powder",
+                "Beschreibung": "Dashi Powder",
+                "amount": 4,
+                "unit": "g"
+            },
+            {
+                "Name": "Noodle",
+                "Beschreibung": "Japanese Ramen",
+                "amount": 200,
+                "unit": "g"
+            }
+        ],
+        "kategorien": [
+            {
+                "Name": "Noodle"
+            }
+        ]
+    }
+]

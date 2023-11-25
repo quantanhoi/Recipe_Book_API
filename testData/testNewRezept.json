@@ -1,0 +1,51 @@
+[
+    {
+        "Name": "Taro Milktea",
+        "Beschreibung": "A delicious and refreshing homemade Taro Milktea",
+        "Rating": 5,
+        "rezeptSteps": [
+            {
+                "RS_ID": 1,
+                "Beschreibung": "Brew Green Tea"
+            },
+            {
+                "RS_ID": 2,
+                "Beschreibung": "Mix Taro Poweder in brewed green tea"
+            },
+            {
+                "RS_ID": 3,
+                "Beschreibung": "Add sweetener to taste and stir well"
+            },
+            {
+                "RS_ID": 4,
+                "Beschreibung": "Add milk and stir well"
+            }
+        ],
+        "zutaten": [
+            {
+                "Name": "Milk",
+                "Beschreibung": "Any kind of milk",
+                "amount": 300,
+                "unit": "ml"
+                
+            },
+            {
+                "Name": "Taro Powder",
+                "Beschreibung": "Taro Powder",
+                "amount": 10,
+                "unit": "g"
+            },
+            {
+                "Name": "Sweetener",
+                "Beschreibung": "Sugar, honey, or any sweetener of choice",
+                "amount": 10,
+                "unit": "g"
+            }
+        ],
+        "kategorien": [
+            {
+                "Name": "Beverages"
+            }
+        ]
+    }
+]
