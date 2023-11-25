@@ -1,10 +1,8 @@
 import express from 'express';
 import { MikroORM } from '@mikro-orm/core';
 import mikroOrmConfig from '../mikro-orm.config';
-import { Rezept } from '../entities/rezept';
 import { Bild } from '../entities/bild';
 import { Zutat } from '../entities/zutat';
-import { zutatData } from '../entities/zutatData';
 import { addZutat } from '../utils/ultils';
 
 const router = express.Router();
@@ -50,7 +48,7 @@ router.get('/', async (req, res) => {
  * @brief search for ingredient using its name
  * @example http://localhost:3000/api/zutat/search?q=Milk
  */
-router.get('/api/zutat/search', async (req, res) => {
+router.get('/search', async (req, res) => {
     const orm = await MikroORM.init(mikroOrmConfig);
     try {
         const em = orm.em.fork();
@@ -90,10 +88,15 @@ router.get('/api/zutat/search', async (req, res) => {
 /**
  * @brief Add an ingredient to the DATABASE
  */
-router.post('/api/zutat/add', async (req, res) => {
+router.post('/add', async (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     const orm = await MikroORM.init(mikroOrmConfig);
+    const em = orm.em.fork();
     try {
+        if(await em.findOne(Zutat, {Name: req.body[0].Name})) {
+            console.log("Ingredient already exists");
+            res.status(409).json({message: "Ingredient already exists"});
+        }
         let ingredient = await addZutat(req.body[0], orm);
         if (ingredient) {
             console.log(ingredient);

@@ -107,6 +107,12 @@ router.post('/add', async (req, res) => {
     try {
         const em = orm.em.fork();
         const data = req.body[0];
+        //check if recipe is already in the database
+        if(await em.findOne(Rezept, {Name: data.Name})) {
+            console.log("Recipe already exists");
+            res.status(409).json({message: "Recipe already exists"});
+            return;
+        }
         //creating new rezept instance and adding data to it
         const newRezept = new Rezept();
         newRezept.Name = data.Name;
