@@ -1,4 +1,4 @@
-#Installation
+# Installation
 install node packages
 ```
 npm install express
@@ -37,7 +37,7 @@ Then use the database
 USE fwe_rezeptBuch
 ```
 
-##Copy and Paste everything in full.sql in querry to create the schema
+## Copy and Paste everything in full.sql in querry to create the schema
 
 Example of getting Ingredient Name, Beschreibung, Amount and Unit from a specific Recipe
 ```
@@ -59,7 +59,7 @@ where k.name = 'Beverages' and r.name = 'Matcha Latte';
 ```
 
 
-##Function test (GET)
+## Function test (GET)
 
 Get all rezept test
 ```
@@ -82,7 +82,7 @@ Get an ingredient and its related recipe
 http://localhost:3000/api/zutat/search?q=Milk
 ```
 
-##Function Test (POST)
+## Function Test (POST)
 
 Use Data in /testData/
 
