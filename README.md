@@ -1,8 +1,10 @@
 #Installation
-install 2 node packages
+install node packages
 ```
 npm install express
-npm i -s @mikro-orm/core @mikro-orm/mysql
+npm i -s @mikro-orm/core @mikro-orm/mysql @mikro-orm/cli
+npm install ts-node
+npm install cors
 ```
 
 Start a mySQL Database on Docker and create an user
@@ -35,7 +37,8 @@ Then use the database
 USE fwe_rezeptBuch
 ```
 
-now you can paste the whole sql script to create the schemas
+##Copy and Paste everything in full.sql in querry to create the schema
+
 Example of getting Ingredient Name, Beschreibung, Amount and Unit from a specific Recipe
 ```
 select z.name, z.Beschreibung, ia.amount, ia.unit  from Zutat z 
