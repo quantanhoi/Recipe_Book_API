@@ -228,5 +228,61 @@ router.post('/addZutat/:id', async (req, res) => {
         await orm.close(true);
     }
 });
+/**
+ * @brief Delete a recipe from the database by its ID
+ * @param id ID of the Recipe
+ */
+router.delete('/delete/:id', async (req, res) => {
+    const orm = await MikroORM.init(mikroOrmConfig);
+    try {
+        const em = orm.em.fork();
+        const recipeID = parseInt(req.params.id, 10);
+        const recipe = await em.findOne(Rezept, { R_ID: recipeID });
+        if (!recipe) {
+            res.status(404).send('Recipe not found');
+            return;
+        }
+        // Removing the recipe
+        em.remove(recipe);
+        await em.flush();
+        res.status(200).send('Recipe deleted successfully');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('An error occurred while deleting the recipe.');
+    } finally {
+        await orm.close(true);
+    }
+});
+
+/**
+ * @brief Delete a recipe from the database by its Name
+ * 
+ */
+router.delete('/delete', async (req, res) => {
+    const orm = await MikroORM.init(mikroOrmConfig);
+    try {
+        const em = orm.em.fork();
+        const recipeName = req.query.name;
+        if (typeof recipeName !== 'string') {
+            res.status(400).send('Invalid query parameter.');
+            return;
+        }
+        const recipe = await em.findOne(Rezept, { Name: recipeName });
+        if (!recipe) {
+            res.status(404).send('Recipe not found');
+            return;
+        }
+        // Removing the recipe
+        em.remove(recipe);
+        await em.flush();
+        res.status(200).send('Recipe deleted successfully');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('An error occurred while deleting the recipe.');
+    } finally {
+        await orm.close(true);
+    }
+});
+
 
 export default router;

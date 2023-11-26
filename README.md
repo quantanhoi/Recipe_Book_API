@@ -60,6 +60,7 @@ where k.name = 'Beverages' and r.name = 'Matcha Latte';
 
 
 ## Function test (GET)
+Here I used Postman to test the api methos with API test set
 
 Get all rezept test
 ```
@@ -106,8 +107,22 @@ Use data in testNewZutatRecipe.json, :id is the R_ID of recipe
 http://localhost:3000/api/rezept/addZutat/:id
 ```
 
+Deleting a Recipe
+There are 2 ways to do this, either deleting it by id or by name
+I implemented both here because the id is auto_incremented, so in some cases it will be hard to find the recipe because we don't know ID until the recipe is created
+But the name is well-known
+
+Delete a recipe by its name
+```
+http://localhost:3000/api/rezept/delete?name=Instant%20Ramen
+```
+
+Delete a recipe by its ID
+```
+http://localhost:3000/api/rezept/delete/{id}
+```
 # not yet fullfilled
-api for deleting recipes + UI for deleting recipes
+UI for deleting recipes
 
 
 
