@@ -106,5 +106,8 @@ Use data in testNewZutatRecipe.json, :id is the R_ID of recipe
 http://localhost:3000/api/rezept/addZutat/:id
 ```
 
+# not yet fullfilled
+api for deleting recipes + UI for deleting recipes
+
 
 
