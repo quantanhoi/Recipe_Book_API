@@ -14,6 +14,7 @@
     "@mikro-orm/core": "^5.9.4",
     "@mikro-orm/mysql": "^5.9.4",
     "@mikro-orm/nestjs": "^5.2.2",
+    "cors": "^2.8.5",
     "express": "^4.18.2"
   },
   "mikro-orm": {

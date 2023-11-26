@@ -1,3 +1,10 @@
+#Installation
+install 2 node packages
+```
+npm install express
+npm i -s @mikro-orm/core @mikro-orm/mysql
+```
+
 Start a mySQL Database on Docker and create an user
 ```
 docker run --name fweRezeptBuch -e MYSQL_ROOT_PASSWORD=start01 -e MYSQL_USER=trung -e MYSQL_PASSWORD=start01 -p 3306:3306 -d mysql
