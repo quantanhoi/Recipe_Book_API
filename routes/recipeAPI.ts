@@ -33,10 +33,10 @@ router.get('/', async (req, res) => {
                     const rezeptWithURI = { ...element, Bild: bild.URI };
                     response.push(rezeptWithURI);
                 }
-                else {
-                    const rezeptWithoutURI = { ...element, Bild: 'n/a' }
-                    response.push(rezeptWithoutURI);
-                }
+            }
+            else {
+                const rezeptWithoutURI = { ...element, Bild: 'n/a' }
+                response.push(rezeptWithoutURI);
             }
             /* Since in Rezept there's only B_ID with the type is Bild
             *   We can't just assign URI in bild to B_ID due to difference in type
@@ -104,6 +104,7 @@ router.get('/search', async (req, res) => {
 router.post('/add', async (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     const orm = await MikroORM.init(mikroOrmConfig);
+    console.log("Received POST request data:", req.body);
     try {
         const em = orm.em.fork();
         const data = req.body[0];

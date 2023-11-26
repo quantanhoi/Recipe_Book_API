@@ -1,0 +1,29 @@
+.recipe-form {
+    display: grid;
+    grid-template-columns: auto 1fr; /* Adjust as needed */
+    grid-gap: 10px; /* Space between label and input */
+    max-width: 500px; /* Adjust as needed */
+    margin: auto;
+}
+
+.form-group {
+    margin-bottom: 20px; /* Space between each form group */
+}
+
+.form-group label {
+    grid-column: 1 / 2;
+    text-align: right;
+    margin-right: 10px;
+    align-self: center;
+}
+
+.form-group input,
+.form-group textarea {
+    grid-column: 2 / 3;
+    width: 100%; /* Makes input take up remaining space */
+}
+
+.form-group button {
+    grid-column: 1 / 3; /* Button spans both columns */
+    justify-self: center;
+}
