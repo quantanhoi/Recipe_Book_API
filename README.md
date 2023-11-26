@@ -58,6 +58,10 @@ on r.r_id = kr.r_id
 where k.name = 'Beverages' and r.name = 'Matcha Latte';
 ```
 
+# Start http server
+```
+ts-node main.ts
+```
 
 ## Function test (GET)
 Here I used Postman to test the api methos with API test set
