@@ -82,10 +82,11 @@ router.get('/search', async (req, res) => {
                     const rezeptWithURI = { ...element, Bild: bild.URI };
                     response.push(rezeptWithURI);
                 }
-                else {
-                    const rezeptWithoutURI = { ...element, Bild: 'n/a' }
-                    response.push(rezeptWithoutURI);
-                }
+                
+            }
+            else {
+                const rezeptWithoutURI = { ...element, Bild: 'n/a' }
+                response.push(rezeptWithoutURI);
             }
         }
         res.json(response);

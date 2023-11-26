@@ -4,6 +4,9 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import RecipeList from './component/RecipeList';
 import IngredientList from './component/IngredientList';
 import CreateRecipe from './component/CreateRecipe';
+import RecipeDetail from './component/RecipeDetail';
+import IngredientDetail from './component/IngredientDetail';
+
 
 
 function App() {
@@ -20,6 +23,8 @@ function App() {
             <Route path="/" element={<RecipeList />} />
             <Route path="/ingredients" element={<IngredientList />} />
             <Route path="/create-recipe" element={<CreateRecipe />} /> 
+            <Route path="/recipe/:name" element={<RecipeDetail />} />
+            <Route path="/ingredient/:name" element={<IngredientDetail />} />
           </Routes>
         </header>
       </div>

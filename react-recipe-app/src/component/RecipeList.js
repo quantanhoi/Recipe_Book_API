@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import '../css/RecipeList.css';
 
 
@@ -83,9 +84,10 @@ const RecipeList = () => {
                 <ul className="recipe-list">
                     {recipes.map((recipe, index) => (
                         <li key={index} className="recipe-item">
-                            <h2>{recipe.Name}</h2>
-                            <p>{recipe.Beschreibung}</p>
-                            {/* You can add other details here */}
+                            <Link to={`/recipe/${encodeURIComponent(recipe.Name)}`}>
+                                <h2>{recipe.Name}</h2>
+                                <p>{recipe.Beschreibung}</p>
+                            </Link>
                         </li>
                     ))}
                 </ul>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../css/IngredientList.css';
+import { Link } from 'react-router-dom';
 
 const IngredientList = () => {
     const [ingredients, setIngredients] = useState([]);
@@ -69,7 +70,9 @@ const IngredientList = () => {
             <ul className="ingredient-list">
                 {ingredients.map((ingredient, index) => (
                     <li key={index} className="ingredient-item">
-                        <h2>{ingredient.Name}</h2>
+                        <Link to={`/ingredient/${ingredient.Name}`}>
+                            <h2>{ingredient.Name}</h2>
+                        </Link>
                         {/* Add other ingredient details here */}
                     </li>
                 ))}
