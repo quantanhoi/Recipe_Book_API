@@ -59,82 +59,52 @@ where k.name = 'Beverages' and r.name = 'Matcha Latte';
 ```
 
 
-Let's start with create API
-```
-npm init -y
-npm install @mikro-orm/cli @mikro-orm/core @mikro-orm/mysql @mikro-orm/nestjs express typescript ts-node
-```
+##Function test (GET)
 
-
-##Function test 
-
-get all rezept test
+Get all rezept test
 ```
 http://localhost:3000/api/rezept
 ```
 
-get all zutat
+Get all zutat
 
 ```
 http://localhost:3000/api/zutat
 ```
 
-get specific recipe, %20 is for space
+Get specific recipe, %20 is for space
 ```
 http://localhost:3000/api/rezept/search?q=Matcha%20Latte
 ```
 
-
-
-
-
-
-
-#Error Example
-n MikroORM, collections are lazy-loaded by default, which means they are not loaded until you explicitly ask for them.
-
-To load the rezepte collection for a Kategorie, you can use the init() method on the collection. Here's how you can modify your code to load and print the rezepte collection for each Kategorie:
+Get an ingredient and its related recipe 
 ```
-const main = async () => {
-    const orm = await MikroORM.init(mikroOrmConfig);
-    try {
-        const em = orm.em.fork();
-        const entitiesRepository = em.getRepository(Kategorie);
-        const allEntities = await entitiesRepository.findAll();
-        for (const kategorie of allEntities) {
-            
-            await kategorie.rezepte.init(); // populate the rezepte collection
-            console.log(kategorie);
-            
-        }
-    } catch (error) {
-        console.error(error);
-    } finally {
-        await orm.close(true);
-    }
-};
+http://localhost:3000/api/zutat/search?q=Milk
 ```
-in this code 
-```
-await kategorie.rezepte.init();
-```
-is used tpto load the rezepte collection from the database. After this line, kategorie.rezepte will be initialized and you can use getItems() method to get the items in the collection
+
+##Function Test (POST)
+
+Use Data in /testData/
 
 
-#composite primary key and composition
-I got a lot of error just for initialize RezeptStep 
-in @ManyToOne to Rezept you have to define it as primary key
+Add a new recipe to the database
+Testing with an already existing category: use data from testNewRezept.json
 ```
-@Entity({tableName: 'RezeptStep'})
-export class RezeptStep {
-    @PrimaryKey()
-    RS_ID!: number;
-
-    @Property()
-    Beschreibung!: string;
-
-    @ManyToOne(() => Rezept, { primary: true, fieldName: 'R_ID' })
-    rezept!: Rezept;
-
-}
+http://localhost:3000/api/rezept/add
 ```
+Testing with non existing category: use data from testNewRezeptUndCategory.json
+
+Add a new ingredient to the database
+Use data in testNewZutat.json
+```
+http://localhost:3000/api/zutat/add
+```
+
+Add a new ingredient to an existing recipe
+Use data in testNewZutatRecipe.json, :id is the R_ID of recipe
+```
+http://localhost:3000/api/rezept/addZutat/:id
+```
+
+
+
