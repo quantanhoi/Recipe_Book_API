@@ -125,9 +125,9 @@ alter table Kategorie_Rezept add constraint FK_KATEGORI_KATEGORIE_KATEGORI forei
 
 alter table Kategorie_Rezept add constraint FK_KATEGORI_KATEGORIE_REZEPT foreign key (R_ID) references Rezept (R_ID) on delete cascade on update cascade;
 
-alter table Rezept add constraint FK_REZEPT_REFERENCE_BILD foreign key (B_ID) references Bild (B_ID) on delete restrict on update restrict;
+alter table Rezept add constraint FK_REZEPT_REFERENCE_BILD foreign key (B_ID) references Bild (B_ID) on delete cascade on update cascade;
 
-alter table RezeptStep add constraint FK_REZEPTST_REZEPT_RE_REZEPT foreign key (R_ID) references Rezept (R_ID) on delete restrict on update restrict;
+alter table RezeptStep add constraint FK_REZEPTST_REZEPT_RE_REZEPT foreign key (R_ID) references Rezept (R_ID) on delete cascade on update cascade;
 
 alter table Zutat add constraint FK_ZUTAT_REFERENCE_BILD foreign key (B_ID) references Bild (B_ID) on delete restrict on update restrict;
 
